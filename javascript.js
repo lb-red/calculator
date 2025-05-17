@@ -1,4 +1,14 @@
 let isNewNumber = true;
+let operation = "";
+let num1, num2;
+
+function updateDisplay(newValue) {
+  display.textContent = newValue;
+}
+
+function appendDisplay(newDigit) {
+  if (display.textContent.length < 9) display.textContent += newDigit;
+}
 
 function buttonPressed(event) {
   btnValue = event.target.value;
@@ -17,6 +27,7 @@ function buttonPressed(event) {
     case "9":
       if (isNewNumber) updateDisplay(btnValue);
       else appendDisplay(btnValue);
+      
       isNewNumber = false;
       break;
 
@@ -26,18 +37,23 @@ function buttonPressed(event) {
         isNewNumber = false;
       }
       break;
-    
-    default:
+
+    case "=":
+      if (operation) {
+        isNewNumber = true;
+        num2 = parseFloat(display.textContent);
+      }
+      break;
+
+    case "+":
+    case "-":
+    case "*":
+    case "/":
+    case "^":
+      operation = btnValue;
+      num1 = parseFloat(display.textContent);
       isNewNumber = true;
   }
-}
-
-function updateDisplay(newValue) {
-  display.textContent = newValue;
-}
-
-function appendDisplay(newDigit) {
-  if (display.textContent.length < 9) display.textContent += newDigit;
 }
 
 const display = document.getElementById("display");
