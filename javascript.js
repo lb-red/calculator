@@ -41,7 +41,9 @@ function buttonPressed(event) {
     case "=":
       if (operation) {
         isNewNumber = true;
-        num2 = parseFloat(display.textContent);
+        num2 = num1;
+        num1 = parseFloat(display.textContent);
+        updateDisplay(operate(num1, num2, operation));
       }
       break;
 
@@ -54,6 +56,12 @@ function buttonPressed(event) {
       num1 = parseFloat(display.textContent);
       isNewNumber = true;
   }
+}
+
+function operate(a, b, oper) {
+  if (oper == "+") return a + b;
+  else if (oper == "-") return a - b;
+  else if (oper == "*") return a * b;
 }
 
 const display = document.getElementById("display");
