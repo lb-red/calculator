@@ -1,4 +1,4 @@
-let isEqualJustPressed = false;
+let isNewNumber = true;
 
 function buttonPressed(event) {
   btnValue = event.target.value;
@@ -15,9 +15,20 @@ function buttonPressed(event) {
     case "7":
     case "8":
     case "9":
-      if (isEqualJustPressed) updateDisplay(btnValue);
+      if (isNewNumber) updateDisplay(btnValue);
       else appendDisplay(btnValue);
+      isNewNumber = false;
+      break;
+
+    case ".":
+      if (!display.textContent.includes(".")) {
+        appendDisplay(btnValue);
+        isNewNumber = false;
+      }
+      break;
     
+    default:
+      isNewNumber = true;
   }
 }
 
