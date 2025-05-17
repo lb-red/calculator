@@ -33,10 +33,10 @@ function buttonPressed(event) {
       break;
 
     case ".":
-      if (!display.textContent.includes(".")) {
-        appendDisplay(btnValue);
-        isNewNumber = false;
-      }
+      if (isNewNumber && display.textContent != "0") updateDisplay("0.");
+      else if (!display.textContent.includes(".")) appendDisplay(btnValue);
+      
+      isNewNumber = false;
       break;
 
     case "=":
