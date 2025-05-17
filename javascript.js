@@ -49,6 +49,8 @@ function buttonPressed(event) {
           lastInputNum = currentNum;
         }
         else answer = operate(currentNum, lastInputNum, operation);
+        
+        if (answer == "Invalid") operation = "";
 
         isNewNumber = true;
         isNewOperation = false;
@@ -73,7 +75,10 @@ function operate(a, b, oper) {
   if (oper == "+") return a + b;
   else if (oper == "-") return a - b;
   else if (oper == "*") return a * b;
-  else if (oper == "/") return a / b;
+  else if (oper == "/") {
+    if (b != 0) return a / b;
+    else return "Invalid";
+  }
   else if (oper == "^") return Math.pow(a, b);
 }
 
