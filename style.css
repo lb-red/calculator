@@ -1,34 +1,59 @@
 * {
-  border: 1px dotted red;
+  /* border: 1px dotted red; */
   box-sizing: border-box;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 0;
   margin: 0;
+
+  background-color: aliceblue;
+}
+
+main {
+  height: 99.9vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-  width: 95vw;
-  height: 95vh;
+  width: 500px;
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  background-color: rgb(32, 32, 32);
 }
 
 #display {
-
+  text-align: right;
+  min-height: 120px;
+  font-family: monospace;
+  font-size: 84px;
+  background-color: rgb(193, 255, 193);
+  padding-top: 10px;
 }
 
-.calc-row {
+.button-container {
   display: flex;
   flex-direction: row;
-  flex: 1 1 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+button {
+  font-family: monospace;
+  font-size: 40px;
+  height: 110px;
+  margin: 3px 0px;
 }
 
 .calc-button {
-  flex: 1 1 0;
+  width: 110px;
+}
+
+.calc-button#zero {
+  width: 226px;
 }

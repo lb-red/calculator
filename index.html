@@ -1,41 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <meta charset="UTF-8">
-  <title>Calculator</title>
+  <title>CalculatoRED</title>
   <link rel="stylesheet" href="style.css">
   <script src="javascript.js" defer></script>
 </html>
 <body>
-  <div class="container">
-    <div class="calc-row" id="display"></div>
-    <div class="calc-row">
-      <button class="calc-button" type="button"></button>
-      <button class="calc-button" type="button"></button>
-      <button class="calc-button" type="button"></button>
-      <button class="calc-button" type="button"></button>
+  <main id="calculator">
+    <div class="container">
+      <!-- max digit of display is 9 -->
+      <div id="display"></div>
+      <div class = "button-container">
+        <button class="calc-button" type="button">AC</button>
+        <button class="calc-button" type="button">C</button>
+        <button class="calc-button" type="button"></button>
+        <button class="calc-button" type="button">/</button>
+        <button class="calc-button" type="button">7</button>
+        <button class="calc-button" type="button">8</button>
+        <button class="calc-button" type="button">9</button>
+        <button class="calc-button" type="button">*</button>
+        <button class="calc-button" type="button">4</button>
+        <button class="calc-button" type="button">5</button>
+        <button class="calc-button" type="button">6</button>
+        <button class="calc-button" type="button">-</button>
+        <button class="calc-button" type="button">1</button>
+        <button class="calc-button" type="button">2</button>
+        <button class="calc-button" type="button">3</button>
+        <button class="calc-button" type="button">+</button>
+        <button class="calc-button" type="button" id="zero">0</button>
+        <button class="calc-button" type="button">.</button>
+        <button class="calc-button" type="button">=</button>
+      </div>
     </div>
-    <div class="calc-row">
-      <button class="calc-button" type="button"></button>
-      <button class="calc-button" type="button"></button>
-      <button class="calc-button" type="button"></button>
-      <button class="calc-button" type="button"></button>
-    </div>
-    <div class="calc-row">
-      <button class="calc-button" type="button"></button>
-      <button class="calc-button" type="button"></button>
-      <button class="calc-button" type="button"></button>
-      <button class="calc-button" type="button"></button>
-    </div>
-    <div class="calc-row">
-      <button class="calc-button" type="button"></button>
-      <button class="calc-button" type="button"></button>
-      <button class="calc-button" type="button"></button>
-      <button class="calc-button" type="button"></button>
-    </div>
-    <div class="calc-row">
-      <button class="calc-button" type="button"></button>
-      <button class="calc-button" type="button"></button>
-      <button class="calc-button" type="button"></button>
-    </div>
-  </div>
+  </main>
 </body>
