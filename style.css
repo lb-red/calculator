@@ -1,0 +1,34 @@
+* {
+  border: 1px dotted red;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 95vw;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#display {
+
+}
+
+.calc-row {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 0;
+}
+
+.calc-button {
+  flex: 1 1 0;
+}
