@@ -1,6 +1,7 @@
 let isNewNumber = true;
+let isNewOperation = true;
 let operation = "";
-let num1, num2;
+let firstInputNum, lastInputNum;
 
 function updateDisplay(newValue) {
   display.textContent = newValue;
@@ -40,10 +41,19 @@ function buttonPressed(event) {
 
     case "=":
       if (operation) {
+        let answer;
+        let currentNum = parseFloat(display.textContent);
+
+        if (isNewOperation) {
+          answer = operate(firstInputNum, currentNum, operation);
+          lastInputNum = currentNum;
+        }
+        else answer = operate(currentNum, lastInputNum, operation);
+
         isNewNumber = true;
-        num2 = num1;
-        num1 = parseFloat(display.textContent);
-        updateDisplay(operate(num1, num2, operation));
+        isNewOperation = false;
+
+        updateDisplay(answer);
       }
       break;
 
@@ -53,8 +63,9 @@ function buttonPressed(event) {
     case "/":
     case "^":
       operation = btnValue;
-      num1 = parseFloat(display.textContent);
+      firstInputNum = parseFloat(display.textContent);
       isNewNumber = true;
+      isNewOperation = true;
   }
 }
 
