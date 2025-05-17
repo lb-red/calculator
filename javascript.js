@@ -73,6 +73,8 @@ function operate(a, b, oper) {
   if (oper == "+") return a + b;
   else if (oper == "-") return a - b;
   else if (oper == "*") return a * b;
+  else if (oper == "/") return a / b;
+  else if (oper == "^") return Math.pow(a, b);
 }
 
 const display = document.getElementById("display");
