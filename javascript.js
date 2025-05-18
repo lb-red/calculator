@@ -74,7 +74,6 @@ function buttonPressed(event) {
       firstInputNum = 0;
       lastInputNum = 0;
       operation = "";
-      isNewNumber = true;
       isNewOperation = false;
     case "clear":
       isNewNumber = true;
