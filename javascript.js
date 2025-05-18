@@ -34,8 +34,8 @@ function appendDisplay(newDigit) {
   if (display.textContent.length < 9) display.textContent += newDigit;
 }
 
-function buttonPressed(event) {
-  let btnValue = event.target.value;
+function buttonPressed(value) {
+  let btnValue = value;
   
   switch (btnValue) {
     case "0":
@@ -115,9 +115,18 @@ function operate(a, b, oper) {
   else if (oper == "^") return Math.pow(a, b);
 }
 
+function keyDowned(event) {
+  if (event.key == "Enter") buttonPressed("=");
+  else if (event.key == "Backspace") buttonPressed("clear");
+  else if (event.key == "Backspace" && event.shiftKey) buttonPressed("all-clear");
+  else buttonPressed(event.key);
+}
+
+document.addEventListener("keydown", (event) => keyDowned(event));
+
 const display = document.getElementById("display");
 
 const buttons = document.querySelectorAll(".calc-button");
 buttons.forEach(button => {
-  button.addEventListener("click", (event) => buttonPressed(event))
+  button.addEventListener("click", (event) => buttonPressed(event.target.value))
 });
