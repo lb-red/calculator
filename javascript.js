@@ -12,7 +12,7 @@ function appendDisplay(newDigit) {
 }
 
 function buttonPressed(event) {
-  btnValue = event.target.value;
+  let btnValue = event.target.value;
   console.log(btnValue);
   
   switch (btnValue) {
@@ -35,7 +35,7 @@ function buttonPressed(event) {
     case ".":
       if (isNewNumber && display.textContent != "0") updateDisplay("0.");
       else if (!display.textContent.includes(".")) appendDisplay(btnValue);
-      
+
       isNewNumber = false;
       break;
 
@@ -68,6 +68,18 @@ function buttonPressed(event) {
       firstInputNum = parseFloat(display.textContent);
       isNewNumber = true;
       isNewOperation = true;
+      break;
+
+    case "all-clear":
+      firstInputNum = 0;
+      lastInputNum = 0;
+      operation = "";
+      isNewNumber = true;
+      isNewOperation = false;
+    case "clear":
+      isNewNumber = true;
+      updateDisplay("0");
+    
   }
 }
 
