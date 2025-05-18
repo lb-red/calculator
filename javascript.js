@@ -4,7 +4,30 @@ let operation = "";
 let firstInputNum, lastInputNum;
 
 function updateDisplay(newValue) {
-  display.textContent = newValue;
+  let rounded;
+  let maxDisplayDigit = 9;
+  console.log(newValue);
+
+  if (newValue.toString().length > maxDisplayDigit) {
+    rounded = newValue.toPrecision(maxDisplayDigit);
+    let roundedDigitLimit;
+
+    // fits the answer with exponent to display
+    if (rounded.includes("e")) {
+      // 2 for "e" + "."
+      roundedDigitLimit = maxDisplayDigit - (rounded.split("e")[1].length + 2); // 2 for "e" & "."
+      rounded = newValue.toPrecision(roundedDigitLimit);
+    
+    // fits the answer without exponent
+    } else if (rounded.includes(".")) {
+      roundedDigitLimit = maxDisplayDigit - (rounded.split(".")[0].length + 1); // 1 for "." only
+      rounded = newValue.toFixed(roundedDigitLimit);
+    }
+  }
+  else {
+    rounded = newValue;
+  }
+  display.textContent = rounded;
 }
 
 function appendDisplay(newDigit) {
@@ -13,7 +36,6 @@ function appendDisplay(newDigit) {
 
 function buttonPressed(event) {
   let btnValue = event.target.value;
-  console.log(btnValue);
   
   switch (btnValue) {
     case "0":
